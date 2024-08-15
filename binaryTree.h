@@ -10,7 +10,6 @@ typedef struct Node {
     struct Node* right;
 }Node;
 
-
 Node* createNode(int data) {
     Node* node = (Node*)malloc(sizeof(Node));
     if(node == NULL) {
