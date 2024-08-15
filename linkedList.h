@@ -101,6 +101,18 @@ void freeList(ListNode** head) {
     *head = NULL;
 }
 
+int getListPosition(ListNode* head, int position) {
+    ListNode* temp = head;
+    for (int i = 0; i < position && temp != NULL; i++) {
+        temp = temp->next;
+    }
+    if (temp == NULL) {
+        printf("Position out of range\n");
+        exit(1);
+    }
+    return temp->data;
+}
+
 void printList(ListNode* head) {
     ListNode* temp = head;
     while (temp != NULL) {
@@ -119,7 +131,7 @@ void printListPosition(ListNode* head, int position) {
         printf("Position out of range\n");
         return;
     }
-    printf("%d", temp->data);
+    printf("%d\n", temp->data);
 }
 
 #endif //LINKEDLIST_H

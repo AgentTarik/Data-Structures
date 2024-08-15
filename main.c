@@ -12,11 +12,16 @@ int main(void) {
     insertAtPosition(&head, 4, 4);
 
     printList(head);
+
+    int x = getListPosition(head, 2);
+    printf("%d\n", x);
+
     printListPosition(head, 3);
 
     deleteListPosition(&head, 3);
 
     printList(head);
+
 
     freeList(&head);
 
