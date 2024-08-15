@@ -60,6 +60,47 @@ void insertAtPosition(ListNode** head, int data, int position) {
     temp->next = newNode;
 }
 
+void deleteListPosition(ListNode** head, int position) {
+
+    if (head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    ListNode* temp = *head;
+    if (position == 0) {
+        *head = (*head)->next;
+        free(temp);
+        return;
+    }
+
+    for (int i = 0; i < position - 1 && temp != NULL; i++) {
+        temp = temp->next;
+    }
+
+    if (temp == NULL || temp->next == NULL) {
+        printf("Position out of range\n");
+        free(temp);
+        return;
+    }
+
+    ListNode* nodeToDelete = temp->next;
+    temp->next = nodeToDelete->next;
+    free(nodeToDelete);
+}
+
+void freeList(ListNode** head) {
+    ListNode* currentNode = *head;
+    ListNode* nodeToDelete = NULL;
+
+    while (currentNode != NULL) {
+        nodeToDelete = currentNode->next;
+        free(currentNode);
+        currentNode = nodeToDelete;
+    }
+    *head = NULL;
+}
+
 void printList(ListNode* head) {
     ListNode* temp = head;
     while (temp != NULL) {

@@ -14,6 +14,14 @@ int main(void) {
     printList(head);
     printListPosition(head, 3);
 
+    deleteListPosition(&head, 3);
+
+    printList(head);
+
+    freeList(&head);
+
+    printList(head);
+
 
 
 
