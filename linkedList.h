@@ -5,7 +5,7 @@
 
 typedef struct ListNode {
     int data;
-    struct ListNode *next;
+    struct ListNode* next;
 }ListNode;
 
 ListNode* createListNode(int data) {

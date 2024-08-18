@@ -4,10 +4,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct Node {
+typedef struct TreeNode {
     int data;
-    struct Node* left;
-    struct Node* right;
+    struct TreeNode* left;
+    struct TreeNode* right;
 }Node;
 
 Node* createNode(int data) {
