@@ -19,6 +19,8 @@ typedef struct HashMap {
     int count;
 }HashMap;
 
+void insertAtMap(HashMap* map, const char* key, int value);
+
 
 int hashFunction(const char* key, int mapSize) {
     int hash = 0;
