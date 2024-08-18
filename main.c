@@ -12,7 +12,14 @@ int main(void) {
 
     printMap(map);
 
-    printf("making a search for 'Bruno'. Result: %d\n", searchEntry(map, "Bruno"));
+    printf("making a search for 'Bruno'. Result: %d\n", searchByKey(map, "Bruno"));
+    printf("Making a search for the value 17. Result: %s\n", searchByValue(map, 17));
+
+    if (keyExists(map, "Bruno") == 1) {
+        printf("Key 'Bruno' exists\n");
+    }else {
+        printf("Key 'Bruno' does not exist\n");
+    }
 
     deleteEntry(map, "Jaum");
     printMap(map);

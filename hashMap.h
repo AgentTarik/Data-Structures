@@ -77,7 +77,7 @@ void insertAtMap(HashMap* map, const char* key, int value) {
     printf("Failed to insert key into the hash map\n");
 }
 
-int searchEntry(HashMap* map, const char* key) {
+int searchByKey(HashMap* map, const char* key) {
     int index = hashFunction(key, map->size);
 
     for (int i = 0; i < map->size; i++) {
@@ -91,6 +91,30 @@ int searchEntry(HashMap* map, const char* key) {
 
     printf("Key not found\n");
     return -1;
+}
+
+char* searchByValue(HashMap* map, const int value) {
+    for (int i = 0; i < map->size; i++) {
+        if (map->entries[i].key != NULL && map->entries[i].data == value) {
+            return map->entries[i].key;
+        }
+    }
+    printf("value not found\n");
+    return NULL;
+}
+
+int keyExists(HashMap* map, const char* key) {
+    int index = hashFunction(key, map->size);
+    for (int i = 0; i < map->size; i++) {
+        int probeIndex = (index + i) % map->size;
+        if (map->entries[probeIndex].key == NULL) {
+            return 0;
+        }
+        if (strcmp(map->entries[probeIndex].key, key) == 0) {
+            return 1;
+        }
+    }
+    return 0;
 }
 
 void deleteEntry(HashMap* map, const char* key) {
