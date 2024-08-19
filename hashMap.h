@@ -21,7 +21,6 @@ typedef struct HashMap {
 
 void insertAtMap(HashMap* map, const char* key, int value);
 
-
 int hashFunction(const char* key, int mapSize) {
     int hash = 0;
     while (*key) {
@@ -66,7 +65,7 @@ void insertAtMap(HashMap* map, const char* key, int value) {
     for (int i = 0; i < map->size; i++) {
         int probeIndex = (index + i) % map->size;
         if (map->entries[probeIndex].key == NULL) {
-            map->entries[probeIndex].key = strdup(key);
+            map->entries[probeIndex].key = _strdup(key);
             map->entries[probeIndex].data = value;
             map->count++;
             return;
